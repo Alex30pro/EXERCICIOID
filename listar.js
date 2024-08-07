@@ -5,7 +5,7 @@ function listarUsuarios() {
     console.log(`ID: ${contato.id} , Nome: ${contato.nome}, Email:${contato.email}, Telefone: ${contato.telefones}`);
     });
 
-    }
+    };
 
     module.exports = listarUsuarios;
 

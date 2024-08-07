@@ -15,7 +15,7 @@ function mainMenu(){
         3 - Atualizar Usuário
         4 - Remover Usuário
         5 - Sair
-    `)
+    `);
 
     const opcao = prompt('Digite o numero da opcao que deseja: ');
 
@@ -29,9 +29,17 @@ function mainMenu(){
         case '2':
             const nome = prompt('Digite o nome do usuário: ');
             const email = prompt('Digite o email do usuário: ');
-            const telefones = prompt('Digite o número de telefone: ');
+            let telefones = [];
+            let adicionarMais = true;
+
+            while (adicionarMais) {
+                const telefone = prompt('Digite o número de telefone: ');
+                telefones.push(telefone);
+                adicionarMais = prompt('Deseja adicionar telefone? (s/n): ').toLowerCase() === 's';
+            };
+
             adicionarUsuario({ nome, email, telefones});
-            console.log('Usuário adicionado com sucesso!')
+            console.log('Usuário adicionado com sucesso!');
             mainMenu();
             break;
         case '3':
@@ -39,8 +47,16 @@ function mainMenu(){
             index = parseInt(prompt('Número do ID do usuário a atualizar: '));
             const novoNome = prompt('Digite o novo nome do usuário: ');  
             const novoEmail = prompt('Digite o novo email: ');
-            const novoTelefones = prompt('Digite o novo número de telefone: ');
-            atualizarUsuario(index, {nome: novoNome, email: novoEmail, telefones: novoTelefones});
+            let novosTelefones = [];
+            let adicionarMaisNovos = true;
+
+            while (adicionarMaisNovos) {
+                const novoTelefone = prompt('Digite o número do novo telefone: ');
+                novosTelefones.push(novoTelefone);
+                adicionarMaisNovos = prompt('Deseja adicionar outro telefone? (s/n): ').toLowerCase() === 's';
+            }
+
+            atualizarUsuario(index, { nome: novoNome, email: novoEmail, telefones: novosTelefones });
             console.log('Usuário atualizado com sucesso');
             mainMenu();
             break;
@@ -56,5 +72,6 @@ function mainMenu(){
         default:
             console.log('Opção inválida!');
             mainMenu();         
-    }
-}
+    };
+};
+

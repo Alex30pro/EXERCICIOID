@@ -5,10 +5,10 @@ function atualizarContato(id, novoContato){
     if (index !== -1) {
         contatos[index] = {id, ...novoContato};
     } else {
-        console.log('Usuário não encontrado')
-    }
+        console.log('Usuário não encontrado');
+    };
 
-}
+    };
 
 module.exports = atualizarContato;
 

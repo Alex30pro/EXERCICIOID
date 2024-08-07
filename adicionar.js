@@ -5,4 +5,4 @@ function adicionarContato(contato) {
     contatos.push(contato);
 }
 
-module.exports = adicionarContato
+module.exports = adicionarContato;

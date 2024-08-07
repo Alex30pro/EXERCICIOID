@@ -5,8 +5,8 @@ function removerUsuario(index, id) {
         contatos[index] = {id, ...contatos};
         contatos.splice(index, 1);
     } else {
-        console.log('Usuário não encontrado')
-    }
-    }
+        console.log('Usuário não encontrado');
+    };
+ };
 
 module.exports = removerUsuario;    
